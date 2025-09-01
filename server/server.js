@@ -24,6 +24,10 @@ app.use("/api/v1/user", require("./routes/userRoutes.js"));
 app.use("/api/v1/admin", require("./routes/adminRoutes.js"));
 app.use("/api/v1/doctor", require("./routes/doctorRoutes.js"));
 
+app.get("/", (req, res) => {
+  res.json({ message: "Server is running..." });
+});
+
 //port
 const port = process.env.PORT;
 //listen port
