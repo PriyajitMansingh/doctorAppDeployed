@@ -9,7 +9,7 @@ const User = () => {
   //get Users
   const getUsers=async()=>{
     try{
-      const res=await axios.get("http://localhost:8080/api/v1/admin/getAllUsers",{
+      const res=await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/admin/getAllUsers`,{
         headers:{
           Authorization:`Bearer ${localStorage.getItem("token")}`
         }

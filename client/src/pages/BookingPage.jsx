@@ -21,7 +21,7 @@ const BookingPage = () => {
     //login user data
   const getUserData=async()=>{
     try{
-      const res=await axios.post("http://localhost:8080/api/v1/doctor/getDoctorById",
+      const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/doctor/getDoctorById`,
         {doctorId:params.doctorId},
         {
         headers:{
@@ -44,7 +44,7 @@ const BookingPage = () => {
         return alert("Date & Time Required")
       }
       dispatch(showLoading())
-      const res=await axios.post("http://localhost:8080/api/v1/user/book-appointment",
+      const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/book-appointment`,
       {doctorId:params.doctorId,
         userId:user._id,
         doctorInfo:doctors,
@@ -69,7 +69,7 @@ const BookingPage = () => {
   const handleAvailability =async()=>{
     try{
         dispatch(showLoading())
-        const res=await axios.post("http://localhost:8080/api/v1/user/availability",
+        const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/availability`,
           {doctorId:params.doctorId,date,time},
           {
             headers:{

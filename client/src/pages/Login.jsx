@@ -13,7 +13,7 @@ const Login = () => {
   const onfinishHandler=async(values)=>{
     try{
       dispatch(showLoading())
-      const res=await axios.post("http://localhost:8080/api/v1/user/login",values)
+      const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/login`,values)
       window.location.reload()
       dispatch(hideLoading())
       if(res.data.success){

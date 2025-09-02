@@ -16,7 +16,7 @@ const NotificationPage = () => {
   const handleMarkAllRead=async()=>{
     try{
         dispatch(showLoading())
-        const res=await axios.post("http://localhost:8080/api/v1/user/get-all-notification",{userId:user._id},{
+        const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/get-all-notification`,{userId:user._id},{
           headers:{
             Authorization:`Bearer ${localStorage.getItem("token")}`,
           },
@@ -38,7 +38,7 @@ const NotificationPage = () => {
   const handleDeleteAllRead=async()=>{
     try{
         dispatch(showLoading())
-        const res=await axios.post("http://localhost:8080/api/v1/user/delete-all-notification",{userId:user._id},{
+        const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/delete-all-notification`,{userId:user._id},{
           headers:{
             Authorization:`Bearer ${localStorage.getItem("token")}`
           }

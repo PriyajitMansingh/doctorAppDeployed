@@ -15,7 +15,7 @@ const ApplyDoctor = () => {
     const handleFinish=async(values)=>{
         try{
             dispatch(showLoading())
-            const res =await axios.post("http://localhost:8080/api/v1/user/apply-doctor",{...values,userId:user._id},{
+            const res =await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/user/apply-doctor`,{...values,userId:user._id},{
                 headers:{
                     Authorization:`Bearer ${localStorage.getItem("token")}`
                 }

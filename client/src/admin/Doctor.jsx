@@ -8,7 +8,7 @@ const Doctor = () => {
   //getDoctors
   const getDoctors=async()=>{
     try{
-      const res=await axios.get("http://localhost:8080/api/v1/admin/getAllDoctors",{
+      const res=await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/admin/getAllDoctors`,{
         headers:{
           Authorization:`Bearer ${localStorage.getItem("token")}`
         }
@@ -26,7 +26,7 @@ const Doctor = () => {
   //handle account
   const handleAccountStatus=async(record,status)=>{
     try{
-      const res=await axios.post("http://localhost:8080/api/v1/admin/changeAccountStatus",{doctorId:record._id,userId:record.userId,status:status},{
+      const res=await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/admin/changeAccountStatus`,{doctorId:record._id,userId:record.userId,status:status},{
         headers:{
           Authorization:`Bearer ${localStorage.getItem("token")}`
         }

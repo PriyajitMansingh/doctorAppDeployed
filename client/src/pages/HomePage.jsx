@@ -12,7 +12,7 @@ const [doctors, setDoctors] = useState([])
   //login user data
 const getUserData=async()=>{
   try{
-    const res=await axios.get("http://localhost:8080/api/v1/user/getAllDoctors",{
+    const res=await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/user/getAllDoctors`,{
       headers:{
         Authorization:"Bearer "+localStorage.getItem("token")
       }
