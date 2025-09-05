@@ -31,6 +31,7 @@ useEffect(()=>{
 ,[])
 return (
   <Layout>
+   
     <h1 className='text-center'>Choose Your Doctor</h1>
     <Row>
       {doctors && doctors.map((doctor)=>
